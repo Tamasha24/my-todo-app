@@ -19,10 +19,11 @@ public class TodoController {
 
 
     // Get all tasks 
-    @GetMapping("/all")
-    public List<Todo> getAllTodos() {
-        return repository.findAll();
-    }
+@GetMapping
+public List<Todo> getAllTodosDefault() {
+    return repository.findAll();
+}
+
 
     // Get tasks for today
     @GetMapping("/today")
