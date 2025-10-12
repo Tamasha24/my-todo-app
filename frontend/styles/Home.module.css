@@ -1,0 +1,207 @@
+.container {
+  max-width: 1000px;
+  height: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.addTask {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+  color: "#ffffffff"
+}
+.taskInput {
+  background-color: #222222ff;
+  color: rgb(207, 207, 207); /* typed text */
+}
+
+.taskInput::placeholder {
+  color: rgb(207, 207, 207); /* placeholder color */
+}
+
+.addTask input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #342626;
+ 
+}
+
+.addButton {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addButton:hover {
+  background-color: #1976d2;
+}
+
+.lists {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.listBox {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.listBox h2 {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1rem;
+ 
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todoItem, .completedItem {
+  display: flex;
+  color:#000000;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.actions button {
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.doneButton {
+  background-color: #2196f3;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border-color: white;
+  cursor: pointer;
+  font-size: 0.70rem;
+  transition: 0.3s ease;
+}
+
+.doneButton:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.70rem;
+  transition: 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+.completedItem span.strike {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
+.completedDeleteButton {
+  background-color: #f44336; 
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.3s ease;
+}
+
+.completedDeleteButton:hover {
+  background-color: #d32f2f; 
+  transform: scale(1.05);
+}
+
+.empty {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+
+}
+
+
+.listBox h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+
+.overdueBox h2 {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+
+.dueTodayBox h2 {
+  color: #ff9800;
+  border-bottom: 2px solid #ff9800;
+}
+
+
+.todoBox h2 {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+
+.completedBox h2 {
+  color: green;
+  border-bottom: 2px solid green;
+}
+
+.editButton {
+  background-color: none;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  margin-right: 5px;
+}
+
+.editButton:hover {
+  background-color: #b7b3b3;
+  border-radius: 3.5px;
+}
