@@ -34,6 +34,15 @@ It allows users to **add, edit, mark as done, and delete tasks**, with all data 
 
 ---
 
+Notes
+
+All task data is stored in a file-based H2 database (./data/todo-db)
+
+To reset the database, delete ./data/todo-db.mv.db
+
+Frontend communicates with backend via REST API
+
+
 ### Backend Setup
 
 1. Navigate to the backend folder:
@@ -74,18 +83,4 @@ npm run dev
 Frontend runs on: http://localhost:3000
 
 
-| Action        | Method | URL               |
-| ------------- | ------ | ----------------- |
-| Get all tasks | GET    | `/api/todos`      |
-| Add task      | POST   | `/api/todos`      |
-| Update task   | PUT    | `/api/todos/{id}` |
-| Delete task   | DELETE | `/api/todos/{id}` |
 
-
-Notes
-
-All task data is stored in a file-based H2 database (./data/todo-db)
-
-To reset the database, delete ./data/todo-db.mv.db
-
-Frontend communicates with backend via REST API
