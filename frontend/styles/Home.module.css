@@ -24,11 +24,11 @@
 }
 .taskInput {
   background-color: #222222ff;
-  color: rgb(207, 207, 207); /* typed text */
+  color: rgb(207, 207, 207);
 }
 
 .taskInput::placeholder {
-  color: rgb(207, 207, 207); /* placeholder color */
+  color: rgb(207, 207, 207); 
 }
 
 .addTask input {
