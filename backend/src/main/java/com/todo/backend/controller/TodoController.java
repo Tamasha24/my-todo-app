@@ -18,21 +18,21 @@ public class TodoController {
     }
 
 
-    // Get all tasks 
+    
 @GetMapping
 public List<Todo> getAllTodosDefault() {
     return repository.findAll();
 }
 
 
-    // Get tasks for today
+   
     @GetMapping("/today")
     public List<Todo> getTodayTodos() {
         return repository.findByDate(LocalDate.now());
     }
 
 
-    // Get overdue tasks
+
 
     @GetMapping("/overdue")
     public List<Todo> getOverdueTodos() {
@@ -40,13 +40,13 @@ public List<Todo> getAllTodosDefault() {
     }
 
 
-    // Get upcoming tasks
+  
     @GetMapping("/upcoming")
     public List<Todo> getUpcomingTodos() {
         return repository.findByDateAfter(LocalDate.now());
     }
 
-    // Add a new task with chosen date
+  
     @PostMapping
     public Todo addTodo(@RequestBody Todo todo) {
         if (todo.getDate() == null) {
@@ -57,18 +57,17 @@ public List<Todo> getAllTodosDefault() {
     }
 
 
-    // Update task (title, date, completed status)
+   
 
     @PutMapping("/{id}")
     public Todo updateTodo(@PathVariable Long id, @RequestBody Todo todo) {
         Todo existing = repository.findById(id).orElseThrow();
         existing.setTitle(todo.getTitle());
-        existing.setDate(todo.getDate()); // allow date update
+        existing.setDate(todo.getDate()); 
         existing.setCompleted(todo.isCompleted());
         return repository.save(existing);
     }
 
-    // Delete task
     @DeleteMapping("/{id}")
     public void deleteTodo(@PathVariable Long id) {
         repository.deleteById(id);
