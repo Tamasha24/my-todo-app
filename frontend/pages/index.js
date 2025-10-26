@@ -7,7 +7,7 @@ export default function Home() {
   const [todo, setTodo] = useState([]);
   const [completed, setCompleted] = useState([]);
 
-  // Edit mode state
+  
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editingTitle, setEditingTitle] = useState("");
   const [editingDate, setEditingDate] = useState("");
@@ -18,8 +18,6 @@ export default function Home() {
   setEditingDate(task.date);
 };
 
-
-  // Load tasks from localStorage on startup
   useEffect(() => {
     const storedTodo = JSON.parse(localStorage.getItem("todo")) || [];
     const storedCompleted = JSON.parse(localStorage.getItem("completed")) || [];
@@ -27,7 +25,6 @@ export default function Home() {
     setCompleted(storedCompleted);
   }, []);
 
-  // Save tasks to localStorage when changed
   useEffect(() => {
     localStorage.setItem("todo", JSON.stringify(todo));
     localStorage.setItem("completed", JSON.stringify(completed));
@@ -36,10 +33,8 @@ export default function Home() {
  const handleAdd = async () => {
   if (!title.trim() || !date) return;
 
-  // Ensure date is in YYYY-MM-DD
   let formattedDate = date;
   if (date.includes("/")) {
-    // if somehow it's MM/DD/YYYY, convert it
     const [month, day, year] = date.split("/");
     formattedDate = `${year}-${month.padStart(2,"0")}-${day.padStart(2,"0")}`;
   }
@@ -84,18 +79,16 @@ export default function Home() {
   if (!doneTask) return;
 
   try {
-    // Update backend
     await fetch(`http://localhost:8080/api/todos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: doneTask.title,
         date: doneTask.date,
-        completed: true // mark as done
+        completed: true 
       }),
     });
 
-    // Update frontend state
     setTodo(todo.filter((t) => t.id !== id));
     setCompleted([...completed, { ...doneTask, completed: true }]);
   } catch (error) {
@@ -108,17 +101,13 @@ const saveEdit = async (id) => {
     const updatedTask = {
       title: editingTitle,
       date: editingDate,
-      completed: false, // keep completed status false unless editing a done task
+      completed: false, 
     };
-
-    // Call backend to update task
     await fetch(`http://localhost:8080/api/todos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
     });
-
-    // Update frontend state
     setTodo(
       todo.map((t) =>
         t.id === id ? { ...t, title: editingTitle, date: editingDate } : t
@@ -132,19 +121,12 @@ const saveEdit = async (id) => {
     console.error("Error updating task:", error);
   }
 };
-
-
-  // Cancel editing
   const cancelEdit = () => {
     setEditingTaskId(null);
     setEditingTitle("");
     setEditingDate("");
   };
-
-  // Get today's date in YYYY-MM-DD format
   const today = new Date().toISOString().split("T")[0];
-
-  // Separate tasks
   const overdue = todo.filter((t) => t.date < today);
   const dueToday = todo.filter((t) => t.date === today);
   const remaining = todo.filter((t) => t.date > today);
@@ -193,7 +175,7 @@ const saveEdit = async (id) => {
     <div className={styles.container}>
       <h1 className={styles.title}>To-Do List</h1>
 
-      {/* Add Task */}
+      {}
       <div className={styles.addTask}>
         <input
           type="text"
