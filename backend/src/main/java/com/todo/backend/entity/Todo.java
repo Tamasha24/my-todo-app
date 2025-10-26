@@ -12,7 +12,7 @@ public class Todo {
 
     private String title;
     private boolean completed = false;
-    private LocalDate date = LocalDate.now(); // store the task date
+    private LocalDate date = LocalDate.now(); 
 
     // Getters and setters
     public Long getId() { return id; }
